@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+       body{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./wall.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+    display: block;
+    width: 50vh;
+    margin: 100px auto;
+    background-color: rgba(340, 349,356 , 0.7);
+    padding: 24px;
+    text-align: center;
+    border-radius: 8px;
+ 
+
+}
+#inp{
+    width: 100%;
+    background-color: rgba(240, 249,256 , 0.6);
+    border: none;
+    outline: none;
+    color: rgb(119, 38, 38);
+    font-size: 1.3rem;
+    height: 50px;
+    border-radius: 6px;
+    padding: 0 10 px;
+    text-align: center;
+}
+
+#inp:focus{
+    background-color: rgba(240, 249,256);
+    border-radius: 10px;
+}
+
+.ok{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(54, 20, 20);
+}
+
+
+
+
+   </style>
+    <title>Check Pallindrome</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="ok">Pallindrome Checker</div>
+        <input type="text" id="inp" placeholder="Enter the String">
+        <div id="pal">
+            <div id="box" 
+            style="background:#4CAF50;;height:50px;width:1px;border:1px solid rgb(42, 197, 42);
+            margin: auto;
+            margin-top: 20px; border-radius: 10px;
+            display: none;
+            font-size: 1.2rem;
+    font-weight: bold;
+    font-family: cursive;
+    color: white;
+    padding-top: 10px;
+    box-shadow:
+    0 0 24px 2px rgb(42, 197, 42);"
+            
+            >
+            </div>
+          </div>
+        <div id="notpal">
+            <div id="box2" 
+            style="background:#f44336;height:50px;width:1px;border:1px solid rgb(221, 32, 95);
+            margin: auto;
+            margin-top: 20px; border-radius: 10px;
+            display: none; font-size: 1.2rem;
+    font-weight: bold;
+    font-family: cursive;
+    color: white;
+    padding-top: 10px;
+    box-shadow:
+   
+    0 0 14px 2px rgb(228, 64, 72);"
+    
+    
+            
+            >
+            </div>
+          </div>
+    </div>
+    
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+        function pal(){
+            document.getElementById('box2').style.display='none';
+        document.getElementById('box').style.display='initial';
+$(document).ready(function(){
+    $("#box").animate({
+      width: "200px"
+    }, {
+      duration: 1000,
+      easing: "linear",
+    });
+  
+});
+document.getElementById('box').innerText='Pallindrome';
+}
+
+    function notpal(){
+        document.getElementById('box').style.display='none';
+        document.getElementById('box2').style.display='initial';
+        
+$(document).ready(function(){
+    $("#box2").animate({
+      width: "200px"
+    }, {
+      duration: 1000,
+      easing: "linear",
+    });
+  
+});
+document.getElementById('box2').innerText='Not Pallindrome';
+};
+
+function reverseString(str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+const search=document.getElementById("inp");
+
+search.addEventListener('keypress',(event)=>{
+    
+    if(event.keyCode==13){
+        //console.log(search.value);
+        var val=search.value;
+        if(val==reverseString(val))
+        pal();
+        else
+        notpal();
+
+    }
+
+
+
+});
+
+</script>
+
